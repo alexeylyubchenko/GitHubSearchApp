@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/followerItemLlt"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/follower_item_view_height"
+        android:padding="@dimen/follower_item_view_padding"
+        android:background="@color/item_block_bg_color">
+
+        <ImageView
+            android:id="@+id/followerAvatarImg"
+            android:layout_width="@dimen/follower_item_view_height"
+            android:layout_height="@dimen/follower_item_view_height"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@+id/followerAvatarImg"
+            android:padding="@dimen/follower_item_view_padding"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/loginTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_text_size"
+                android:textStyle="normal"
+                android:textColor="@color/item_title_text_color"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

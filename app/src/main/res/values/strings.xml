@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">GitHubSearchApp</string>
+    <string name="action_search">Search</string>
+
+    <!-- default Alert Dialog -->
+    <string name="button_alert_dialog_positive_btn">Ok</string>
+    <string name="button_alert_dialog_negative_btn">Cancel</string>
+
+    <string name="no_internet">No internet connection!</string>
+    <string name="no_results">No results have been found</string>
+
+    <string name="forks_count">Forks count:</string>
+
+    <string name="followers_title">Followers</string>
+</resources>

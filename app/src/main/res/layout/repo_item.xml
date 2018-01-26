@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="@dimen/repo_item_view_height"
+    android:id="@+id/itemLlt"
+    android:background="@color/item_block_bg_color">
+
+        <ImageView
+            android:id="@+id/avatarImg"
+            android:layout_width="@dimen/repo_avatar_img_size"
+            android:layout_height="@dimen/repo_avatar_img_size"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/repo_item_view_padding"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/title_text_size"
+                android:textStyle="bold"
+                android:lines="1"
+                android:textColor="@color/item_title_text_color"/>
+
+            <TextView
+                android:id="@+id/descTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_text_size"
+                android:textStyle="normal"
+                android:textColor="@color/item_desc_text_color"
+                android:maxLines="2"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_text_size"
+                    android:textStyle="bold"
+                    android:text="@string/forks_count"
+                    android:textColor="@color/item_forks_title_text_color"/>
+
+                <TextView
+                    android:id="@+id/forksCountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_text_size"
+                    android:textStyle="normal"
+                    android:paddingLeft="@dimen/text_blocks_padding"
+                    android:textColor="@color/item_forks_text_color"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+</LinearLayout>

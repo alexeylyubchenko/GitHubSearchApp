@@ -1,0 +1,90 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "alexey.githubsearchapp.android"
+        minSdkVersion 19
+        targetSdkVersion 26
+
+        // Version configuration
+        def versionMain = 1
+        def versionPatch = 0
+        def versionBuild = 2
+
+        versionCode versionMain * 100 + versionPatch * 10 + versionBuild
+        versionName "$versionMain.$versionPatch.$versionBuild"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    def appName = "GitHubSearchApp"
+
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def apkName = appName + "_" + versionName +
+                            (variant.buildType.name == "release" ? "" : "_" + variant.buildType.name) + ".apk"
+
+                    output.outputFileName = new File(
+                            output.outputFile.parent,
+                            output.outputFile.name
+                                    .replace(output.outputFile.name, apkName)
+                    );
+                }
+
+            }
+        }
+        debug {
+            minifyEnabled false
+            debuggable true
+        }
+
+    }
+}
+
+dependencies {
+    implementation 'com.android.support:support-v4:26.1.0'
+    implementation 'com.android.support:cardview-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:appcompat-v7:26.1.0'
+    compile 'com.android.support:design:26.1.0'
+    compile 'com.android.support:support-vector-drawable:26.1.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    def dagger2 = '2.10-rc2'
+    compile "com.google.dagger:dagger:${dagger2}"
+    compile "com.google.dagger:dagger-android:${dagger2}"
+    compile "com.google.dagger:dagger-android-support:${dagger2}"
+    annotationProcessor "com.google.dagger:dagger-compiler:${dagger2}"
+    annotationProcessor "com.google.dagger:dagger-android-processor:${dagger2}"
+    def retrofit2Version = '2.1.0'
+    compile "com.squareup.retrofit2:retrofit:${retrofit2Version}"
+    compile "com.squareup.retrofit2:adapter-rxjava:${retrofit2Version}"
+    compile "com.squareup.retrofit2:converter-gson:${retrofit2Version}"
+    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
+    provided 'org.projectlombok:lombok:1.16.16'
+    annotationProcessor "org.projectlombok:lombok:1.16.16"
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.jakewharton:butterknife:8.7.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation project(':rxnetwork')
+}
